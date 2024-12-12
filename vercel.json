@@ -11,6 +11,6 @@
             "dest": "api/main.py"
         }
     ],
-    "files": ["api/model.pkl", "api/tfidf.pkl"]
+    "files": ["api/model.pkl", "api/tfidf.pkl", "api/model.joblib", "api/tfidf.joblib"]
 }
   
