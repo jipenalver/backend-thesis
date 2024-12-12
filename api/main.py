@@ -6,7 +6,7 @@ import os
 app = FastAPI()
 
 @app.get("/")
-async def main():
+async def web_check():
     return {"message": "SIAM Backend"}
 
 # Load the model and vectorizer
@@ -30,10 +30,6 @@ def predict(input: TextInput):
         # Preprocess the input text
         text = input.text.lower()
         text_vector = vectorizer.transform([text]).toarray()
-        
-        # Debugging logs
-        print(f"Preprocessed Text: {text}")
-        print(f"TF-IDF Vector Shape: {text_vector.shape}")
 
         prediction = classifier.predict(text_vector)
         print(f"Raw Prediction: {prediction}")
@@ -49,4 +45,3 @@ def predict(input: TextInput):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Prediction error: {str(e)}")
-
